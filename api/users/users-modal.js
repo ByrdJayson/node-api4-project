@@ -3,39 +3,39 @@
 const people = [
     {
     "id": "1",
-    "Name": "Jayson",
-    "Cohort": "Web 49",
-    "Password": "Bad!DONOTDO"
+    "username": "Jayson",
+    "cohort": "Web 49",
+    "password": "Bad!DONOTDO"
     },
     {
     "id": "2",
-    "Name": "Chance",
-    "Cohort": "Web 49",
-    "Password": "Bad!DONOTDO"
+    "username": "Chance",
+    "cohort": "Web 49",
+    "password": "Bad!DONOTDO"
     },
     {
     "id": "3",
-    "Name": "Christopher",
-    "Cohort": "Web 49",
-    "Password": "Bad!DONOTDO"
+    "username": "Christopher",
+    "cohort": "Web 49",
+    "password": "Bad!DONOTDO"
     },
     {
     "id": "4",
-    "Name": "Marco",
-    "Cohort": "Web 49",
-    "Password": "Bad!DONOTDO"
+    "username": "Marco",
+    "cohort": "Web 49",
+    "password": "Bad!DONOTDO"
     },
     {
     "id": "5",
-    "Name": "Angela",
-    "Cohort": "Web 49",
-    "Password": "Bad!DONOTDO"
+    "username": "Angela",
+    "cohort": "Web 49",
+    "password": "Bad!DONOTDO"
     },
     {
     "id": "6",
-    "Name": "Jennifer",
-    "Cohort": "Web 49",
-    "Password": "Bad!DONOTDO"
+    "username": "Jennifer",
+    "cohort": "Web 49",
+    "password": "Bad!DONOTDO"
     },
 ]
 
@@ -43,7 +43,20 @@ async function find() {
     return people
 }
 
+async function create({username, password}) {
+    const newUser = {
+        id: people.length + 1,
+        username: username,
+        cohort: "Web 49",
+        password: password
+    }
+    console.log(username, password)
+    people.push(newUser)
+    return newUser
+}
+
 
 module.exports = {
-    find
+    find,
+    create
 }

@@ -19,5 +19,16 @@ server.get('/api/users', (req, res) => {
     })
 })
 
+server.post('/api/users', async (req, res) => {
+    Users.create(req.body)
+    
+    .then(user => {
+        res.status(201).json(user)
+    })
+    .catch(err => {
+        res.status(500).json({message: "Internal Server Error!"})
+    })
+})
+
 
 module.exports = server
