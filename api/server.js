@@ -30,5 +30,20 @@ server.post('/api/users', async (req, res) => {
     })
 })
 
+server.post('/api/login', async (req, res) => {
+    Users.login(req.body)
+    .then(valid => {
+        if(valid === true) {
+            res.status(200).json({message: "Welcome!"})
+        } else {
+            res.status(401).json({message: "Invalid Credentials"})
+        }
+        
+    })
+    .catch(() => {
+        res.status(500).json({message: "Internal Server Error"})
+    })
+})
+
 
 module.exports = server

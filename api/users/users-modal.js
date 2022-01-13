@@ -55,8 +55,25 @@ async function create({username, password}) {
     return newUser
 }
 
+async function login({username, password}) {
+    const valid = []
+
+    people.forEach(person => {
+        if(username === person.username && password === person.password) {
+            valid.push(person)
+        }
+    })
+
+    if(valid) {
+        return true
+    }
+
+
+}
+
 
 module.exports = {
     find,
-    create
+    create,
+    login
 }
