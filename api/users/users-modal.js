@@ -56,11 +56,11 @@ async function create({username, password}) {
 }
 
 async function login({username, password}) {
-    const valid = []
+    let valid = false
 
     people.forEach(person => {
         if(username === person.username && password === person.password) {
-            valid.push(person)
+            valid = true
         }
     })
 
